@@ -178,5 +178,29 @@ sepData <- separate(gatherData,
 
 # Spread data
 
+spreadData <- spread(sepData, key = Time, value = Observation)
 
 
+# Exercise
+
+data("airquality")
+
+gatherAirquality <- gather(airquality,
+                           key = Measurement,
+                           value = Reading,
+                           -Day,
+                           -Month)
+
+spreadAirQuality <- spread(gatherAirquality,
+                           key = Month,
+                           value = Reading)
+data("pkData")
+
+gatherPkData <- gather(pkData,
+                       key = Measurement,
+                       value = Reading,
+                       -Subject,
+                       -Time)
+spreadPkData <- spread(gatherPkData,
+                       key = Time,
+                       value = Reading)
